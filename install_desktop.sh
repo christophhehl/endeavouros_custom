@@ -1,24 +1,34 @@
 #!/bin/bash
 
-if command -v yay &> /dev/null; then
-	echo "Yay is already installed."
+create_default_folders() {
+  echo "Creating default folders:"
+  cd ~ || echo "Could not navigate to home directory; folders not created." && return
+  mkdir -vp tmp
+  mkdir -vp projects
+  echo "All folders created."
+}
+
+if command -v yay &>/dev/null; then
+  echo "Yay is already installed."
 else
-	echo "Installing yay..."
+  echo "Installing yay..."
 
-	# Install dependencies
-	sudo pacman -S --needed --noconfirm base-devel git
+  # Install dependencies
+  sudo pacman -S --needed --noconfirm base-devel git
 
-	# Clone the yay repository
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
+  # Clone the yay repository
+  git clone https://aur.archlinux.org/yay.git
 
-	# Build and install yay
-	makepkg -si --noconfirm
+  {
+    cd yay || echo "yay was not downloaded correctly." && exit 1
 
-	cd ..
-	rm -rf yay # Clean up the yay source directory
+    # Build and install yay
+    makepkg -si --noconfirm
+  }
 
-	echo "yay installation complete."
+  rm -rf yay # Clean up the yay source directory
+
+  echo "yay installation complete."
 fi
 
 yay -S --needed --noconfirm zsh
@@ -26,17 +36,13 @@ yay -S --needed --noconfirm zsh
 current_login_shell=$(getent passwd "$USER" | awk -F':' '{print $7}')
 
 if [[ "$current_login_shell" != "/bin/zsh" ]]; then
-	echo "Changing shell to zsh."
-	chsh -s /bin/zsh
+  echo "Changing shell to zsh."
+  chsh -s /bin/zsh
 else
-	echo "Login shell already is zsh."
+  echo "Login shell already is zsh."
 fi
 
-echo "Creating default folders:"
-cd ~
-mkdir -vp tmp
-mkdir -vp projects
-echo "All folders created."
+create_default_folders
 
 echo "Installing default packages."
 yay -S --needed --noconfirm bitwarden discord dropbox eza google-chrome jetbrains-toolbox kitty lazygit localsend-bin neovim obs-studio obsidian ripgrep spotify teamspeak ttf-jetbrains-mono vlc
