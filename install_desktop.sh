@@ -54,5 +54,19 @@ yay -S --needed --noconfirm bitwarden discord dropbox eza google-chrome jetbrain
 echo "Installation complete."
 
 echo "Setting configuration files."
+cp -v ./config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp -rv ./config/nvim/* ~/.config/nvim/
+echo "All configuration files are set."
 
+echo "You system is ready to go. Have fun!"
+echo "
+   _____ _          _     _              _                ___   ___ ___  _____ 
+  / ____| |        (_)   | |            | |              |__ \ / _ \__ \| ____|
+ | |    | |__  _ __ _ ___| |_ ___  _ __ | |__    ______     ) | | | | ) | |__  
+ | |    | '_ \| '__| / __| __/ _ \| '_ \| '_ \  |______|   / /| | | |/ /|___ \ 
+ | |____| | | | |  | \__ \ || (_) | |_) | | | |           / /_| |_| / /_ ___) |
+  \_____|_| |_|_|  |_|___/\__\___/| .__/|_| |_|          |____|\___/____|____/ 
+                                  | |                                          
+                                  |_|                                          
+"
 exit 0
