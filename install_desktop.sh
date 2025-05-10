@@ -50,12 +50,15 @@ change_login_shell
 create_default_folders
 
 echo "Installing default packages."
-yay -S --needed --noconfirm bitwarden discord dropbox eza google-chrome jetbrains-toolbox kitty lazygit localsend-bin neovim obs-studio obsidian ripgrep spotify teamspeak ttf-jetbrains-mono vlc
+yay -S --needed --noconfirm bitwarden discord dropbox eza google-chrome jetbrains-toolbox kitty lazygit localsend-bin neovim obs-studio obsidian ripgrep spotify teamspeak ttf-jetbrains-mono vlc zsh-antidote
 echo "Installation complete."
 
 echo "Setting configuration files."
 cp -v ./config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 cp -rv ./config/nvim/* ~/.config/nvim/
+cp -v ./config/.zshrc ~/.zshrc
+cp -v ./config/nvim/.zsh_aliases.zsh ~/.zsh_aliases.zsh
+cp -v ./config/.zsh_config.zsh ~/.zsh_config.zsh
 echo "All configuration files are set."
 
 echo "You system is ready to go. Have fun!"
