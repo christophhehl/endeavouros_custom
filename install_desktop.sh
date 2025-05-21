@@ -2,9 +2,11 @@
 
 create_default_folders() {
   echo "Creating default folders:"
+  (
   cd ~ || echo "Could not navigate to home directory; folders not created." && return
   mkdir -vp tmp
   mkdir -vp projects
+  )
   echo "All folders created."
 }
 
