@@ -59,7 +59,7 @@ echo "Setting configuration files."
 cp -v ./config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 cp -rv ./config/nvim/* ~/.config/nvim/
 cp -v ./config/.zshrc ~/.zshrc
-cp -v ./config/nvim/.zsh_aliases.zsh ~/.zsh_aliases.zsh
+cp -v ./config/.zsh_aliases.zsh ~/.zsh_aliases.zsh
 cp -v ./config/.zsh_config.zsh ~/.zsh_config.zsh
 cp -v ./config/.zsh_plugins.txt ~/.zsh_plugins.txt
 echo "All configuration files are set."
