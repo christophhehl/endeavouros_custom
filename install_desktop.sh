@@ -56,7 +56,9 @@ yay -S --needed --noconfirm bitwarden discord dropbox eza google-chrome jetbrain
 echo "Installation complete."
 
 echo "Setting configuration files."
+mkdir -v ~/.config/kitty
 cp -v ./config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+mkdir -v ~/.config/nvim
 cp -rv ./config/nvim/* ~/.config/nvim/
 cp -v ./config/.zshrc ~/.zshrc
 cp -v ./config/.zsh_aliases.zsh ~/.zsh_aliases.zsh
